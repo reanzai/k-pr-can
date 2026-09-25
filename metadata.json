@@ -1,0 +1,6 @@
+{
+  "name": "Köprü Soft | Kurumsal ERP ve e-Dönüşüm Çözümleri",
+  "description": "Köprü Soft, modern bulut ERP, e-Fatura, e-Defter, e-Arşiv, e-Müstahsil, sektörel ve mobil çözümler sunan Türkiye'nin öncü kurumsal yazılım firmasıdır.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

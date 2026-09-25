@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Plus Jakarta Sans", sans-serif;
+  
+  --color-brand-navy: #0f2537;
+  --color-brand-blue: #0066cc;
+  --color-brand-blue-hover: #0052a3;
+  --color-brand-accent: #38bdf8;
+  --color-brand-dark: #07131d;
+  --color-brand-gray: #1e293b;
+  
+  --shadow-premium: 0 10px 30px -5px rgba(15, 37, 55, 0.08), 0 4px 12px -2px rgba(15, 37, 55, 0.03);
+  --shadow-premium-hover: 0 20px 40px -5px rgba(15, 37, 55, 0.12), 0 8px 20px -2px rgba(15, 37, 55, 0.05);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    color: #1e293b;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+  }
+}
+
+/* Custom continuous background grid pattern */
+.grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+.grid-pattern-dark {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 102, 204, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 102, 204, 0.04) 1px, transparent 1px);
+}
+
