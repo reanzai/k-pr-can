@@ -231,3 +231,28 @@ pm2 save
 1. **B2B / Subdomain Entegrasyonu:** `bulut.koprusoft.com.tr` ve ana kurumsal sitenin DNS kayıtlarının (A Record) VDS sunucunuzun IP adresine yönlendirildiğinden emin olun.
 2. **Önbellek (Cache) Yönetimi:** Nginx yapılandırmasındaki statik dosya önbellekleme ayarları sayesinde Google PageSpeed Insights skorunuzu %98+ seviyesinde tutabilirsiniz.
 3. **Log Takibi:** Herhangi bir erişim veya sistem hatasında `/var/log/nginx/koprusoft_error.log` dosyasını inceleyin.
+
+---
+
+## 🛠️ Sık Karşılaşılan Hataların Çözümü (Troubleshooting)
+
+### 1. ⚠️ `npm error code ERESOLVE` / `Could not resolve dependency` Hatası
+
+Vite v8 ve Tailwind v4 paketlerinin en güncel versiyonları, bazı durumlarda `esbuild` sürümleriyle peer dependency (akran bağımlılığı) uyarısı verebilir. Bu sorunu çözmek için:
+
+* **Yöntem A (Önerilen):** Proje `package.json` dosyasında `esbuild` sürümünü direkt Vite v8 uyumlu `"^0.28.0"` sürümüne güncelledik. Dosyaları sunucunuzda güncelleyip tekrar temiz kurulum yapın:
+  ```bash
+  npm install
+  ```
+* **Yöntem B (Zorla / Çakışmayı Atlayarak Kurulum):** Eğer sunucu NPM önbelleği nedeniyle hala uyarı alıyorsanız, çakışmayı yok sayarak temiz kurulum yapmak için şu komutları kullanın:
+  ```bash
+  # Akran bağımlılık kontrolünü atlayarak kararlı kurulum yapar (En Kolay Çözüm)
+  npm install --legacy-peer-deps
+  
+  # Veya çakışmaları zorlayarak kurar
+  npm install --force
+  ```
+* **Yöntem C (Kurulum Sonrası Derleme):** Paketler kurulduktan sonra yayına almak için tekrar derleyin:
+  ```bash
+  npm run build
+  ```
